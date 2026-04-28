@@ -14,6 +14,8 @@ def main():
 
     print("\nHigh Risk Loans:\n", results['high_risk_loans'])
 
+    print("\nCorrelation Matrix:\n", results['correlation'])
+
     plot_status(results['status_counts'])
 
 if __name__ == "__main__":
