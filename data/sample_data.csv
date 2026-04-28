@@ -1,0 +1,3 @@
+date,customer_id,loan_amount,interest_rate,status
+2024-01-01,101,50000,10,approved
+2024-01-05,102,30000,12,rejected
