@@ -17,4 +17,7 @@ def analyze_data(df):
     avg_interest = df['interest_rate'].mean()
     results['high_risk_loans'] = df[df['interest_rate'] > avg_interest]
 
+    # ✅ ADD THIS (correlation)
+    results['correlation'] = df.corr(numeric_only=True)
+
     return results
