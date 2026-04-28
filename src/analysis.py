@@ -1,5 +1,20 @@
+import pandas as pd
+
 def analyze_data(df):
-    total_loans = df['loan_amount'].sum()
+    results = {}
+
+    # Basic stats
+    results['total_loans'] = df['loan_amount'].sum()
+    results['avg_interest'] = df['interest_rate'].mean()
+
+    # Status count
+    results['status_counts'] = df['status'].value_counts()
+
+    # NEW: Avg interest per status
+    results['avg_interest_by_status'] = df.groupby('status')['interest_rate'].mean()
+
+    # NEW: High-risk loans
     avg_interest = df['interest_rate'].mean()
-    status_counts = df['status'].value_counts()
-    return {"total_loans": total_loans, "avg_interest": avg_interest, "status_counts": status_counts}
+    results['high_risk_loans'] = df[df['interest_rate'] > avg_interest]
+
+    return results
